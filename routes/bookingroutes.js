@@ -1,8 +1,8 @@
 
 const express = require('express');
 const router = express.Router();
-const Turf = require('../models/Turf');
-const User = require('../models/User');
+const Turf = require('../models/Turf.js');
+const User = require('../models/User.js');
 const { body, validationResult } = require('express-validator');
 
 // Route to show booking page for a specific turf

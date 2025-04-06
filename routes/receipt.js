@@ -3,11 +3,11 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
 const QRCode = require('qrcode');
-const User = require('../models/User');
+const User = require('../models/User.js');
 const path = require("path");
-const { isLoggedIn } = require('../middleware/auth');
+const { isLoggedIn } = require('../middleware/auth.js');
 const fs = require('fs');
-const Turf = require('../models/Turf');
+const Turf = require('../models/Turf.js');
 
 
 router.get('/download', isLoggedIn, async (req, res) => {

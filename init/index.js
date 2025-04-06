@@ -1,7 +1,7 @@
 
 
 const mongoose = require('mongoose');
-const Turf = require('../models/Turf');  // Adjust path as needed
+const Turf = require('../models/Turf.js');  // Adjust path as needed
 
 const MONGOURL = process.env.ATLASDB;  // MongoDB connection URL
 

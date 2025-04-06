@@ -1,5 +1,5 @@
 const cron = require("node-cron");
-const Turf = require("../models/Turf");
+const Turf = require("../models/Turf.js");
 
 // Schedule the job to reset slots every day at midnight
 cron.schedule("0 0 * * *", async () => {

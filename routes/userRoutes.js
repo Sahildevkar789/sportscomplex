@@ -2,7 +2,7 @@
 // module.exports = router;
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User'); // Assuming User model is located in '../models/User.js'
+const User = require('../models/User.js'); // Assuming User model is located in '../models/User.js'
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const redirectIfAuthenticated = require('../middleware/redirectIfAuthenticated');

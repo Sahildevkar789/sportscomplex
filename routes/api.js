@@ -1,5 +1,5 @@
 const express = require('express');
-const Turf = require('../models/Turf');
+const Turf = require('../models/Turf.js');
 const router = express.Router();
 
 // API Route to get available slots for a specific turf and date
