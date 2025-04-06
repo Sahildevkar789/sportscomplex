@@ -2,19 +2,19 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Turf = require("../minisahil/models/Turf");
+const Turf = require("../minisahil/models/Turf.js");
 const path = require("path");
 const ejsmate = require("ejs-mate");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const User = require('./models/User');
-const { isLoggedIn } = require('./middleware/auth');
-const adminRoutes = require('./routes/admin');
-const bookingroutes = require('./routes/bookingroutes');
-const userRoutes = require('./routes/userRoutes');
+const { isLoggedIn } = require('./middleware/auth.js');
+const adminRoutes = require('./routes/admin.js');
+const bookingroutes = require('./routes/bookingroutes.js');
+const userRoutes = require('./routes/userRoutes.js');
 const { body, validationResult } = require('express-validator');
-const Booking = require('./models/Booking');
+const Booking = require('./models/Booking.js');
 const fs = require('fs');
 const Razorpay = require('razorpay');
 const nodemailer = require('nodemailer');
@@ -92,7 +92,7 @@ app.use((req, res, next) => {
 
 // Routes
   // Load environment variables
-const walletRoutes = require('./routes/walletroutes');
+const walletRoutes = require('./routes/walletroutes.js');
 app.use('/wallet', walletRoutes);
 // Home Route
 app.get("/", (req, res) => {
@@ -160,7 +160,7 @@ app.use((req, res, next) => {
     next();
   });
  
-  const membershipRoutes = require('./routes/membershipRoutes');
+  const membershipRoutes = require('./routes/membershipRoutes.js');
 
   app.use(express.urlencoded({ extended: true }));
   app.use('/api/membership', membershipRoutes);
