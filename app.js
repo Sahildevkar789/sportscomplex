@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Turf = require("../minisahil/models/Turf.js");
+const Turf = require("./models/Turf.js");
 const path = require("path");
 const ejsmate = require("ejs-mate");
 const session = require('express-session');
