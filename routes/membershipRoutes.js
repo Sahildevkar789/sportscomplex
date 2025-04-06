@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../models/User.js'); // User Model
-const Membership = require('../models/Membership.js'); // Membership Model
+const Membership = require('../models/membership.js'); // Membership Model
 const router = express.Router();
 
 // Membership pricing based on duration
