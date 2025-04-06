@@ -1,0 +1,234 @@
+
+<style>  /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+hr{
+  display: block;
+  background: #5c8bda;
+  height: 0.25rem;
+  width: 100%;
+  border: none;
+  margin: 1.125rem 0 1.175rem 0;
+}
+    ul {
+      list-style: none;
+      padding: 0.7rem;
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background: #ffffff;
+      color: #000;
+    }
+    .logo{
+      margin-right: 20px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* Space between logo and text */
+      text-align: center;
+      font-size: 1.8rem; /* Adjust as needed */
+  }
+  
+  .logo {
+      height: 40px; /* Adjust logo size */
+  }</style>
+<body>
+    <nav>   <h1 class="title">
+        <img src="/style/assests/fcritlogo.png" alt="" width="40" class="logo">
+        Fr. Agnels Sports Complex
+    </h1>
+    
+       <hr> <ul>
+          <li><a href="/book">home</a></li>
+          <li><a href="/admin/turfs">Manage Turfs</a></li>
+          <li><a href="/admin/bookings">View All Bookings</a></li>
+          <li><a href="/logout">Logout</a></li>
+          
+        </ul>
+      </nav>
+      <hr>
+    <h3 class="admin-title">Membership Bookings Overview</h3>
+
+    <div class="admin-stats">
+        <h4 class="total-income">💰 Total Income: ₹<%= totalIncome %></h4>
+    </div>
+
+    <div class="container">
+        <% if (sports.length === 0) { %>
+            <p class="text-white">No membership bookings found.</p>
+        <% } else { %>
+            <% sports.forEach(sport => { %>
+                <div class="sport-section">
+                    <h4 class="sport-title">🏆 <%= sport.name %> Memberships</h4>
+                    <p class="text-warning">📉 Remaining Slots: <b><%= sport.remainingSlots %></b> / 100</p>
+
+                    <% if (sport.bookings.length === 0) { %>
+                        <p class="text-muted">No bookings for this sport.</p>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Member Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Duration</th>
+                                        <th>Price</th>
+                                        <th>Booking Date</th>
+                                        <th>Expiry Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% sport.bookings.forEach((membership, index) => { %>
+                                        <tr>
+                                            <td><%= index + 1 %></td>
+                                            <td><%= membership.userDetails.fullName %></td>
+                                            <td><%= membership.userEmail %></td>
+                                            <td><%= membership.userPhone %></td>
+                                            <td><%= membership.monthSlot %></td>
+                                            <td>₹<%= membership.price %></td>
+                                            <td><%= new Date(membership.bookingDate).toLocaleDateString() %></td>
+                                            <td><%= new Date(membership.expiryDate).toLocaleDateString() %></td>
+                                            <td>
+                                                <% if (new Date(membership.expiryDate) > new Date()) { %>
+                                                    <span class="badge bg-success">Active</span>
+                                                <% } else { %>
+                                                    <span class="badge bg-danger">Expired</span>
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+
+    <style>
+        /* Background */
+        body {
+            background-color: #121212 !important;
+            color: #fff !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .admin-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffcc00 !important;
+            margin-left: 29%;
+            margin-top: 1rem;
+            font-size: 2rem;
+        }
+
+        .admin-stats {
+            margin: 2rem;
+            font-size: 1.4rem;
+            color: #ffcc00;
+        }
+
+        .sport-section {
+            margin-bottom: 3rem;
+            padding: 1rem;
+            border: 2px solid #ffcc00;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .sport-title {
+            color: #ffcc00;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Table Styles */
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .table th {
+            background-color: #ffcc00 !important;
+            color: #000 !important;
+            padding: 10px;
+        }
+        .table td {
+            padding: 10px;
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(255, 204, 0, 0.2) !important;
+        }
+
+        /* Status Badges */
+        .badge {
+            font-size: 14px !important;
+            padding: 6px 12px !important;
+            border-radius: 5px !important;
+            font-weight: bold !important;
+        }
+
+        .badge.bg-success {
+            background-color: #28a745 !important;
+            color: #fff !important;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545 !important;
+            color: #fff !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .admin-title {
+                font-size: 1.5rem;
+            }
+            .sport-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+</body>

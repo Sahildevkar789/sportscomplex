@@ -1,0 +1,123 @@
+<%- layout("/layouts/boilerplates") %>
+
+<body>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        Welcome <%= username %>!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="video-container">
+        <video class="video-bg" autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/2297636/2297636-sd_640_360_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <h3 class="section-title">All Listings</h3>
+
+    <div class="container mt-4">
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+            <% if (allTurf.length === 0) { %>
+                <p class="no-listings">No listings available.</p>
+            <% } else { %>
+                <% allTurf.forEach(turf => { %>
+                    <div class="col">
+                        <a href="/listings/<%= turf._id %>" class="listing-link">
+                            <div class="card card-listing border-light shadow-sm">
+                                <img src="<%= turf.imageUrl %>" 
+                                    class="card-img-top" 
+                                    alt="<%= turf.title %> Image" 
+                                    style="height: 16rem; object-fit: cover; border-radius: 10px 10px 0 0;">
+                                <br>
+                                <div class="card-body">
+                                    <h5 class="card-title"><b><%= turf.title %></b></h5>
+                                    <p class="card-text">
+                                        ⏳ Timing: <%= turf.timing || '9am - 5pm' %><br>
+                                        💰 Price: ₹<%= turf.pricePerHour || 0 %> / hour
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+
+    <style>
+        /* Background Video Styling */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(59, 58, 58, 0.6);
+        }
+
+        /* Section Title */
+        .section-title {
+            margin-left: 2rem;
+            margin-top: 1rem;
+            font-size: 2rem;
+            color: wheat;
+        }
+
+        /* No Listings Message */
+        .no-listings {
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        /* Card Styles */
+        .card-listing {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(40px);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10px;
+            padding: 19px;
+            border: 10px solid #fbfbfb;
+        }
+
+        .card-listing:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            color: #fff;
+        }
+
+        .card-text {
+            color: #ccc;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.5rem;
+                margin-left: 1rem;
+            }
+            .card-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</body>

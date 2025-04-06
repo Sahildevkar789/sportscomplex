@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agnel Sports Complex</title>
+
+    <link rel="stylesheet" href="/style/home.css">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+      .landing-heading {
+        color: #fff;
+    text-align: center;
+    font-family: SF-Compact-Display-Bold;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+  
+    margin: 0 auto;
+    }
+    .landing-sub-text {
+      color: #fff;
+      text-align: center;
+      font-family: SF-Compact-Display-Medium;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 52px;
+
+      html {
+        scroll-behavior: smooth;
+      }
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
+  main {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  
+    column-gap: 3rem;
+    padding-block: min(20vh, 3rem);
+  }
+  
+  .bg {
+    position: fixed;
+    top: -4rem;
+    left: -12rem;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .bg2 {
+    position: fixed;
+    bottom: -2rem;
+    right: -3rem;
+    z-index: -1;
+    width: 9.375rem;
+    opacity: 0;
+  }
+  
+  main > div span {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    color: #717171;
+  }
+  
+  main > div h1 {
+    text-transform: capitalize;
+    letter-spacing: 0.8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
+    background-color: #005baa;
+    background-image: linear-gradient(45deg, #d99440, #514d4d);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  
+  main > div hr {
+    display: block;
+    background: #e8a136;
+    height: 0.25rem;
+    width: 6.25rem;
+    border: none;
+    margin: 1.125rem 0 1.875rem 0;
+  }
+  
+  main > div p {
+    line-height: 1.6;
+    color: whitesmoke;
+    font-weight: 400;
+    font-style: italic;
+
+  }
+  
+  main a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #717171;
+    font-weight: 500;
+    background: #fff;
+    border-radius: 3.125rem;
+    transition: 0.3s ease-in-out;
+  }
+  
+  main > div > a {
+    border: 2px solid #c2c2c2;
+    margin-top: 2.188rem;
+    padding: 0.625rem 1.875rem;
+  }
+  
+  main > div > a:hover {
+    border: 0.125rem solid #005baa;
+    color: #005baa;
+  }
+  
+  .swiper {
+    width: 100%;
+    padding-top: 3.125rem;
+  }
+  
+  .swiper-pagination-bullet,
+  .swiper-pagination-bullet-active {
+    background: #fff;
+  }
+  
+  .swiper-pagination {
+    bottom: 1.25rem !important;
+  }
+  
+  .swiper-slide {
+    width: 18.75rem;
+    height: 28.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: self-start;
+  }
+  
+  .swiper-slide h2 {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 0.625rem;
+    padding: 0 0 0 1.563rem;
+    text-transform: uppercase;
+  }
+  
+  .swiper-slide p {
+    color: #dadada;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    padding: 0 1.563rem;
+    line-height: 1.6;
+    font-size: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .swiper-slide a {
+    margin: 1.25rem 1.563rem 3.438rem 1.563rem;
+    padding: 0.438em 1.875rem;
+    font-size: 0.9rem;
+  }
+  
+  .swiper-slide a:hover {
+    color: #005baa;
+  }
+  
+  .swiper-slide div {
+    display: none;
+    opacity: 0;
+    padding-bottom: 0.625rem;
+  }
+  
+  .swiper-slide-active div {
+    display: block;
+    opacity: 1;
+  }
+  
+  .swiper-slide--one {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://www.fcrit.ac.in/images/infrastructure/footb.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  
+  .swiper-slide--two {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://www.fcrit.ac.in/images/infrastructure/foot2.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  
+  .swiper-slide--three {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://www.fcrit.ac.in/images/infrastructure/sendpool.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  
+  .swiper-slide--four {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://www.fcrit.ac.in/images/infrastructure/gym3.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  
+  .swiper-slide--five {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://files.yappe.in/place/small/lakshya-vashi-shooting-range-10863817.webp?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  
+  .swiper-3d .swiper-slide-shadow-left,
+  .swiper-3d .swiper-slide-shadow-right {
+    background-image: none;
+  }
+  
+  @media screen and (min-width: 48rem) {
+    main {
+      display: flex;
+      align-items: center;
+    }
+    .bg,
+    .bg2 {
+      opacity: 0.1;
+    }
+  }
+  
+  @media screen and (min-width: 93.75rem) {
+    .swiper {
+      width: 75%;
+    }
+  }
+  .size{
+      width: 45%;
+  }
+  
+    </style>
+  </head>
+  <body>    
+    <header>
+      <nav class="navbarcss" style="width: 100%;">
+       <div class="logo" style="margin-left: 80px;">
+          <img src="../style/assests/fcritlogo.png" alt="" width="80" />    
+        <!-- </div> <SPan style="    font-family: SF-Compact-Display-Semibold;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 22px;
+    
+    padding-right: 5px;
+    padding-left: 1px;">FR.AGNEL SPORTS</SPan>
+     -->
+    </div>
+        <div class="navbar">
+          <div class="hamburger" onclick="toggleMenu()">☰</div>
+          <ul id="menu">
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="javascript:void(0);" onclick="scrollToSection()">SERVICES</a></li>
+            <li><a href="#contactus">CONTACT US</a></li>
+            <li><a href="#aboutus">ABOUT US</a></li>
+          </ul>
+        </div>
+       <div class="profile">
+  <a href="/login"><button class="profile-button">Login</button></a>
+  <a href="/signup"><button class="profile-button">Sign Up</button></a>
+</div>  
+      </nav>      <div class="h1">
+        <h1 style=" color: #d2cbcb;
+        text-align: center;
+        font-family: SF-Compact-Display-Bold;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 50px;
+        width: 80%;
+        margin: 0 auto; ">FATHER AGNEL SPORTS COMPLEX,VASHI
+      </div>
+    </header>
+
+      <div class="video-container">
+        <video class="video-bg" autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/5192077/5192077-sd_640_360_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+        <div class="overlay"></div>
+    </div>
+    <div class="container" style="margin-bottom: 250px;">
+      <div class="landing-wrapper" >
+          <h1 class="landing-heading">Your Sport. Your Time. Our Field.</h1>
+          <p class="landing-sub-text">Book a slot at any Sports turf in under 2 minutes
+</p>
+      </div>
+  </div>
+  <br>
+  <div class="line"></div>
+<main>
+  <div class="size">
+    <span>discover</span>
+    <h1>sportsfacility</h1>
+    <hr>
+    <p>
+      Agnel Sports Center offers a comprehensive range of state-of-the-art facilities, including an Olympic-sized swimming pool, tennis and badminton courts, a professional football ground, a fully equipped gymnasium, and a jogging track. With expert coaching, modern equipment, and spacious locker rooms, the center ensures a well-rounded environment for fitness, sports training, and recovery. Additionally, it features a cafeteria that serves healthy meals, creating a comfortable space for athletes to relax and refuel. Whether you're training for competition or maintaining fitness, Agnel Sports Center provides the ideal setting to achieve your goals.
+
+      </p>
+    <a href="/book">bookNow</a>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide--one">
+        <div>
+          <h2>Football</h2>
+<p>Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal. Unqualified, the word football is understood to refer to whichever form of football is the most popular in the regional context in which the word appears.</p>
+          <a href="https://en.wikipedia.org/wiki/football" target="_blank">explore</a>
+        </div>
+      </div>
+      <div class="swiper-slide swiper-slide--two">
+        <div>
+          <h2>Basketball</h2>
+<p>
+Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop while preventing the opposing team from shooting through their own hoop.
+</p>
+          <a href="https://en.wikipedia.org/wiki/basketball" target="_blank">explore</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-slide--three">
+
+        <div>
+         <h2>swimming</h2>
+<p>
+Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. The sport takes place in pools or open water. Competitive swimming is one of the most popular Olympic sports, with varied distance events in butterfly, backstroke, breaststroke, and freestyle.
+</p>
+          <a href="https://en.wikipedia.org/wiki/swimming" target="_blank">explore</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-slide--four">
+
+        <div>
+         <h2>Gym</h2>
+<p>
+A gym is a shared space for physical exercise, in the form of equipment and machines, mainly free weights, and exercise classes. Many gyms offer group fitness classes and personal training.
+</p>
+          <a href="https://en.wikipedia.org/wiki/gym" target="_blank">explore</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-slide--five">
+
+        <div>
+         <h2>Shooting</h2>
+<p>
+Shooting sports is a group of competitive and recreational sporting activities involving proficiency tests of accuracy, precision and speed in using various types of ranged weapons, mainly referring to man-portable guns and bows/crossbows.
+</p>
+          <a href="https://en.wikipedia.org/wiki/shooting" target="_blank">explore</a>
+        </div>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <img src="https://cdn.pixabay.com/photo/2021/11/04/19/39/jellyfish-6769173_960_720.png" alt="" class="bg">
+  <img src="https://cdn.pixabay.com/photo/2012/04/13/13/57/scallop-32506_960_720.png" alt="" class="bg2">
+</main>
+      <div class="line"></div>
+      
+      <section class="services" id="services">
+        <p class="services-title" style=" color: #fff;">Services provided by us:-</p>
+        
+        <div class="type-book">
+          <div class="book">
+            <p class="head" style=" color: #fff;">General Slot Booking</p>
+        <a href="/book"><button class="book-button">Book Now</button></a>
+         
+      </div>
+          <div class="book">
+            <p class="head" style=" color: #fff;">Buy a monthly membership</p>
+         <a href="/membership"><button class="book-button">Book Now</button></a>
+          </div>
+        </div>
+      </section>
+      <div class="line"></div>
+      <div class="container1">
+        <section class="cards-container">
+          <!-- Cards Loop Start -->
+          <% const facilities = [
+            { img: '/style/assests/badminton.jpg', title: 'Badminton Court' },
+            { img: '/style/assests/tabletennis.jpg', title: 'Table Tennis' },
+            { img: '/style/assests/basketball.jpg', title: 'Basketball & Volleyball Court' },
+            { img: '/style/assests/swimming.jpg', title: 'Swimming Pool' },
+            { img: '/style/assests/astroturf.jpg', title: 'Football & Hockey Turf' },
+            { img: '/style/assests/gymnastics.jpg', title: 'Gym' }
+          ]; %>
+  
+          <% facilities.forEach(facility => { %>
+            <div class="cards">
+              <img src="<%= facility.img %>" alt="<%= facility.title %>">
+              <div class="cards-title"><%= facility.title %></div>
+            </div>
+          <% }); %>
+          <!-- Cards Loop End -->
+        </section>
+      </div>
+    <a href="/360img" target="_blank" style="display: block; margin: 0 auto; text-align: center; padding:3px;"><button class="profile-button">360° Image</button></a>
+  
+      <div class="line"></div>
+  
+
+      
+    <section class="contact-info" id="contactus">
+      <h2>Our Contact Details</h2>
+      <div class="contact-details">
+          <div class="contact-item">
+              <h3>Head Office</h3>
+              <p>fr agnel sports centre vashi navimumbai 400701</p>
+              <p>Email:fcrit@sportsfacility.com</p>
+              <p>Phone: 7738114011</p>
+          </div>
+        
+          <div class="contact-item">
+              <h3>Technical problem</h3>
+              
+              <p>Email: sahil@sportsfacility.com</p>
+              <p>Phone: +7738114011</p>
+          </div>
+      </div>
+  </section>
+
+ 
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form action="/contact" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+    
+        <label>Message:</label>
+        <textarea name="message" rows="4" required></textarea><br>
+    
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+  
+
+</main>
+<div class="about-us" id="aboutus" style="  background: #676565;">
+  <h2>About Our Sports Complex</h2>
+  <p>Welcome to <strong>[Your College Name] Sports Complex</strong>, a premier destination for sports enthusiasts and athletes. Our state-of-the-art facilities cater to students, faculty, and the community, providing an environment to train, compete, and stay active.</p>
+  
+  <h3>Our Facilities</h3>
+  <ul>
+      <li>Indoor and Outdoor Football Turf</li>
+      <li>Basketball and Volleyball Courts</li>
+      <li>Badminton and Tennis Courts</li>
+      <li>Fully Equipped Gym</li>
+      <li>Running Track & Fitness Area</li>
+      <li>Swimming Pool</li>
+  </ul>
+  
+  <h3>Why Choose Us?</h3>
+  <p>We believe in promoting sports culture, teamwork, and fitness. Our complex hosts regular tournaments, training programs, and fun activities to keep students engaged and physically active.</p>
+
+  <h3>Join Us</h3>
+  <p>Whether you’re a beginner or a professional athlete, our sports complex is open for you. Book your slot today and be part of the action!</p>
+</div>
+
+    <footer>
+ <section class="location">
+      <h2>Our Locations</h2>
+      <div class="map-container">
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5506183012817!2d72.99493031490296!3d19.073144487088886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c0e8c0024a25%3A0xa9a76f8fdd0e635d!2sSector%2010A%2C%20Vashi%2C%20Navi%20Mumbai%2C%20Maharashtra%20400703!5e0!3m2!1sen!2sin!4v1695958492583!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+  </section>
+      <div class="footer">
+        <div class="footer-logo">
+          <img src="/assests/fcritlogo.png" alt="" width="67" />
+        </div>
+        <div class="footer-content">
+          <div class="footer-title">Fr.Agnel Sports Center</div>
+          <div class="footer-info">
+            <p>
+              Fr.Agnel Sports Center offers state-of-the-art facilities including a
+              swimming pool, tennis and badminton courts, a football ground, a
+              gymnasium, and a jogging track. It also provides professional
+              coaching, modern equipment, locker rooms, and a cafeteria, ensuring
+              a comprehensive environment for fitness, sports training, and
+              relaxation.
+            </p>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-title">Contact Us</div>
+          <div class="footer-info">
+            <p>
+              <span>Address:</span>Fr. Agnel Sports Complex, Sector 9-A, Vashi, Navi
+              Mumbai, Maharashtra 400703
+            </p>
+            <p>
+              <span>Phone:</span> 022 2766 8230
+            </p>
+            <p>
+              <span>Email:</span> fcritsp@123gmail.com
+            </p>
+          </div>
+        </div>
+      </div>   <button id="scrollToTopBtn" class="scroll-to-top-btn">↑</button>
+
+      
+      <script src="script.js"></script>   </footer>
+      
+      <div class="f-info">
+        <div class="f-info-socials" >
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+
+        </div>
+        <div class="f-info-brand">&copy; Agnels Sports Complex</div>
+        <div class="f-info-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>  
+        </div>
+    </div>
+ 
+    </div> 
+    <script >
+      function goToNextPage() {
+        window.location.href = '/html/services.html'; // Replace with your desired URL
+      }
+    
+      function scrollToSection() {
+        const section = document.querySelector('.services');
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+
+    function toggleMenu() {
+  document.querySelector('.navbar').classList.toggle('active');
+  document.querySelector('.hamburger').classList.toggle('active');
+}
+    // Get the button
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 100px from the top of the document, show the button
+window.onscroll = function() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
+};
+
+// When the user clicks the button, scroll to the top of the document
+scrollToTopBtn.onclick = function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+    </script>
+    </body>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 3,
+          slideShadows: true
+        },
+        keyboard: {
+          enabled: true
+        },
+        mousewheel: {
+          thresholdDelta: 70
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2
+          },
+          768: {
+            slidesPerView: 1
+          },
+          1024: {
+            slidesPerView: 2
+          },
+          1560: {
+            slidesPerView: 3
+          }
+        }
+      });
+    </script>
+  
+</html>

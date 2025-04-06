@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #121212; /* Dark mode */
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      animation: fadeInDown 1s ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+hr{
+  display: block;
+  background: #5c8bda;
+  height: 0.25rem;
+  width: 100%;
+  border: none;
+  margin: 1.125rem 0 1.875rem 0;
+}
+    ul {
+      list-style: none;
+      padding: 0.7rem;
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background: #ffffff;
+      color: #000;
+    }
+
+    /* Dashboard Section */
+    section {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo{
+      margin-right: 20px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* Space between logo and text */
+      text-align: center;
+      font-size: 1.8rem; /* Adjust as needed */
+  }
+  
+  .logo {
+      height: 40px; /* Adjust logo size */
+
+  }
+    /* Dashboard Section */
+    section {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Messages Section */
+    .messages-container {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .message {
+      border: 1px solid #5c8bda;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      text-align: left;
+    }
+
+    .message h3 {
+      margin: 0;
+      color: #5c8bda;
+    }
+
+    .message p {
+      margin: 5px 0;
+    }
+
+    .message small {
+      display: block;
+      text-align: right;
+      color: #aaa;
+    }
+  
+  </style>
+</head>
+<body>
+
+ 
+
+  <nav>   <h1 class="title">
+    <img src="../style/assests/fcritlogo.png" alt="Fr. Agnels Sports Complex" width="40" class="logo">
+    Fr. Agnels Sports Complex
+</h1>
+
+   <hr> <ul>
+      <li><a href="/book">Home</a></li>
+      <li><a href="/admin/turfs">Manage Turfs</a></li>
+      <li><a href="/admin/bookings">View All Bookings</a></li>
+      <li><a href="/admin/data">Memberships</a></li>
+      <li><a href="/logout">Logout</a></li>
+      
+    </ul>
+  </nav>
+ <h1>Welcome, Admin <%= username %>!</h1>
+  <section>
+    <h2>Dashboard Overview</h2>
+    <p>This is your admin dashboard. You can manage bookings, users, and more here.</p>
+  </section>
+  <div class="messages-container">
+    <h2>Contact Messages</h2>
+    
+    <% if (messages.length > 0) { %>
+      <% messages.forEach((msg) => { %>
+        <div class="message">
+          <h3><%= msg.name %> (<%= msg.email %>)</h3>
+          <p><%= msg.message %></p>
+          <small>Received on: <%= msg.createdAt.toLocaleString() %></small>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No messages available.</p>
+    <% } %>
+  </div>
+
+</body>
+</html>

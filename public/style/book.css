@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 2px solid #ff6600;
+    box-shadow: 0 4px 8px rgba(255, 102, 0, 0.4);
+}
+
+/* Headings */
+h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ff6600;
+}
+
+/* Membership History Cards */
+.card {
+    background: linear-gradient(135deg, #1c1c1c, #292929);
+    border: 1px solid #ff6600;
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(255, 102, 0, 0.6);
+}
+
+/* Card Titles */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+/* Membership Details */
+.card-text {
+    font-size: 1rem;
+    color: #d9d9d9;
+}
+
+/* Status Badges */
+.badge {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.badge-active {
+    background-color: #00c851;
+    color: #fff;
+}
+
+.badge-expired {
+    background-color: #ff4444;
+    color: #fff;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(255, 102, 0, 0.3);
+}
+
+/* Table */
+.table {
+    border: 1px solid #ff6600;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-dark {
+    background-color: #181818;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #242424;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+}

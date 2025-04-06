@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Booking History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-dark text-white">
+
+    <nav class="navbar navbar-dark bg-black px-3">
+        <a class="navbar-brand text-warning fw-bold" href="/">🏆 Membership History</a>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-warning">Your Membership History</h2>
+
+        <% if (messages.success_msg) { %>
+            <div class="alert alert-success"><%= messages.success_msg %></div>
+        <% } %>
+        <% if (messages.error_msg) { %>
+            <div class="alert alert-danger"><%= messages.error_msg %></div>
+        <% } %>
+
+        <% if (user.membershipBookingHistory.length === 0) { %>
+            <div class="text-center mt-4">
+                <h4 class="text-secondary">No memberships booked yet.</h4>
+            </div>
+        <% } else { %>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover">
+                    <thead class="table-warning">
+                        <tr>
+                            <th>Sport</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Booking Date</th>
+                            <th>Expiry Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% user.membershipBookingHistory.forEach(membership => { %>
+                            <tr>
+                                <td><%= membership.sport %></td>
+                                <td><%= membership.monthSlot %></td>
+                                <td>$<%= membership.price %></td>
+                                <td>
+                                    <% if (new Date(membership.expiryDate) > new Date()) { %>
+                                        <span class="badge bg-success">Active</span>
+                                    <% } else { %>
+                                        <span class="badge bg-danger">Expired</span>
+                                    <% } %>
+                                </td>
+                                <td><%= new Date(membership.bookingDate).toLocaleDateString() %></td>
+                                <td><%= new Date(membership.expiryDate).toLocaleDateString() %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+    </div>
+
+</body>
+</html>

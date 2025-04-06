@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+      <img src="../style/assests/fcritlogo.png" alt="Fr. Agnels Sports Complex" width="40" class="logo">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/book">All Listings</a>
+              <a class="nav-link" href="/membership">Membership</a>
+          </div>
+
+          <!-- Right-side Navigation -->
+          <div class="navbar-nav ms-auto">
+              <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                      <i class="fa-regular fa-user"></i> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/wallet">Wallet</a></li>
+                      <li><a class="dropdown-item" href="/booking-history">Booking History</a></li>
+                      <li><a class="dropdown-item" href="/history">Membership History</a></li>
+            
+                      <li><hr class="dropdown-divider"></li>
+             
+<a class="dropdown-item" href="/admin/dashboard" style=" display: <%= isadminn ? 'block' : 'none' %>;">Dashboard</a>
+                      
+                  </ul>
+              </div>
+              <a class="nav-link" href="/logout">Log Out</a>
+          </div>
+      </div>
+  </div>
+</nav>
+<style>
+  /* Blackish-Grey Background for the Toggler */
+  .custom-toggler {
+      background-color: #a99e9e; /* Blackish grey */
+      border: 1px solid #555; /* Slightly lighter border */
+      padding: 8px;
+      border-radius: 5px;
+  }
+
+  /* Change the toggler icon color to white */
+  .navbar-toggler-icon {
+      filter: invert(1); /* Makes the icon white */
+  }
+ @media (max-width: 770px) {
+  #navbarNavAltMarkup{
+    margin-top: 2.2rem;
+    background-color: rgb(62, 62, 62);
+   margin-left: 1rem;
+   border: 1px solid #555; /* Slightly lighter border */
+      padding: 8px;
+      border-radius: 5px;
+  }
+}
+</style>

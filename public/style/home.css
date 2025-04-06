@@ -1,0 +1,594 @@
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: rgb(20, 19, 19);
+    color: whitesmoke;
+    font-family: "Poppins", sans-serif;
+  }
+  header {
+  
+    background-size: cover;
+    background-position: center;
+    height: 25rem;
+    position: relative;
+  }
+  nav {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+.navbarcss{
+  position:sticky;
+  top: 0;
+  background-color:transparent;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+ 
+  z-index: 1;
+  background: #0000004d;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: top 0.2s;
+} 
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-bg {
+    width: 100%;
+    height: 1000px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+  .h1{
+    position: relative;
+    top: 9rem;
+  }
+  .h1 h1 {
+    color: white;
+    font-size: 80px;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    text-align: center;
+  }
+  .navbar {
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .info {
+    margin: 5rem 1rem 0rem 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    font-style: normal;
+    line-height: 1;
+  }
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar li {
+    margin: 0 15px;
+    position: relative;
+    padding: 5px;
+  }
+  .navbar li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: black;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    font-size: 19px;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .navbar a.active::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 10px;
+  }
+  .profile-button {
+    background-color: #e0e0e0;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .profile-button:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);
+  }
+  .profile-button:active {
+    background-color: #cccccc;
+    transform: scale(1);
+  }
+  .container {
+    margin: 1rem;
+    padding-top: 20px;
+    margin-bottom: 5rem;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .cards {
+    background-color: rgba(162, 29, 29, 0);
+    color: rgb(114, 25, 25);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(0, 0, 0);
+  }
+  .cards img {
+    width: 90%;
+    height: 250px;
+    border-radius: 10px;
+  }
+  .cards-title {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+  }
+  .line{
+    height: 5px;
+    background-color: rgb(44, 43, 43);
+  }
+  .services-title {
+    font-size: 60px;
+    font-family: "Poppins", sans-serif;
+    margin: 3rem 1rem 0rem 1rem;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+    text-align: center; /* Centered the title for consistency */
+    color: #000;
+  }
+  
+  .type-book {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem;
+    gap: 2rem; /* Added gap for spacing between items */
+  }
+  
+  .book {
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 35%;
+   
+    font-size: 23px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .book-button {
+    background-color: rgba(0, 0, 0, 0);
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+    border: 2px solid white;
+    border-radius: 16px;
+    margin-top: 3rem;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .book-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 1024px) {
+    .services-title {
+      font-size: 45px; /* Reduce title size for tablets */
+      margin: 2rem 1rem;
+    }
+  
+    .type-book {
+      flex-direction: column; /* Stack items on top of each other */
+      align-items: center;
+    }
+  
+    .book {
+      width: 80%; /* Increase width for smaller screens */
+      height: auto;
+      padding: 20px;
+      margin-bottom: 2rem; /* Add spacing between stacked items */
+    }
+  
+    .book button {
+      font-size: 22px;
+      padding: 10px;
+      margin-top: 2rem;
+    }
+  }
+  
+  /* Extra small screens (phones) */
+  @media (max-width: 600px) {
+    .services-title {
+      font-size: 35px; /* Further reduce title size */
+      text-align: center;
+    }
+  
+    .book {
+      width: 90%; /* Use more width for better layout */
+      padding: 15px;
+      margin-bottom: 1.5rem; /* Add more spacing between items */
+    }
+  
+    .book button {
+      font-size: 20px;
+      padding: 8px;
+    }
+  }
+  
+
+  footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(54, 52, 52);
+    color: whitesmoke;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+  }
+  .footer{
+    width: 100%;
+    padding: 1rem;
+  }
+  .map{
+    width: 40%;
+  }
+  @media (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;
+      align-items: center;
+      display: none;
+      gap: 10px;
+    }
+    .navbar ul.show {
+      display: flex;
+    }
+    .hamburger {
+      display: block;
+    }
+    .navbar {
+      text-align: center;
+    }
+    .navbar li:not(:last-child)::after {
+      display: none;
+    }
+  }
+/* Card Section */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.cards {
+  position: relative;
+  background-color: #bbb6b6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cards img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.cards-title {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.cards:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.container1 {
+  max-width: 99%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 3 cards per row */
+  gap: 30px;
+  padding: 20px;
+}
+
+@media (max-width: 12000px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+}
+
+/* Footer */
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+.f-info-links , .f-info-socials, .f-info-brand{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+.f-info{
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+  color: black;
+}
+
+.f-info-socials i {
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  color: black;
+}
+.contact-info {
+  background-color: #939191;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.contact-item {
+  background-color: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item h3 {
+  margin-bottom: 10px;
+}
+
+.location {
+  padding: 20px;
+  text-align: center;
+}
+
+.map-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+iframe {
+  border-radius: 10px;
+}
+/* Container to center the form */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Full screen height */
+  padding: 20px;
+  background: #827f7f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contact form styling */
+.contact-form {
+  background-color: #ffffff;
+  padding: 15px;
+  width: 100%;
+  max-width: 350px; /* Prevents stretching on large screens */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  opacity: 0.95;
+ 
+}
+
+/* Form elements */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Input and textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+/* Make textarea non-resizable */
+
+  .contact-form textarea {
+    resize: none;
+    height: 100px; /* Adjust to desired height */
+    min-height: 90px;
+    max-height: 200px;
+  }
+  
+
+/* Submit button */
+.contact-form button {
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+/* 🔹 Responsive Design for Smaller Screens */
+@media (max-width: 480px) {
+  .contact-form {
+    width: 90%;
+  }
+}
+.book-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease-in-out;
+  
+  opacity: 0;  /* Initially hidden */
+  pointer-events: none;  /* Prevent clicks before appearing */
+}
+
+/* Button Style */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+ 
+  color: rgb(36, 35, 35);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
+
+/* Show button when scrolled down */
+.scroll-to-top-btn.show {
+  display: block;
+}

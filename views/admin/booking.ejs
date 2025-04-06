@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - All Bookings</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #121212; /* Dark background */
+      color: #ffffff; /* White text */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+      margin-top: 20px;
+    }
+
+    h1, h2 {
+      margin: 5px;
+    }
+
+    /* Total Income */
+    .total-income {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-in-out;
+      color: red;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #1f1f1f;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      background-color: #292929;
+      color: #ffffff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    tr:hover {
+      background-color: #333333;
+      transition: 0.3s;
+    }
+
+    td {
+      color: #ddd;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+hr{
+  display: block;
+  background: #5c8bda;
+  height: 0.25rem;
+  width: 100%;
+  border: none;
+  margin: 1.125rem 0 1.875rem 0;
+}
+    ul {
+      list-style: none;
+      padding: 0.7rem;
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background: #ffffff;
+      color: #000;
+    }
+    .logo{
+      margin-right: 20px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* Space between logo and text */
+      text-align: center;
+      font-size: 1.8rem; /* Adjust as needed */
+  }
+  
+  .logo {
+      height: 40px; /* Adjust logo size */
+  }
+  
+  </style>
+</head>
+<body>
+  <nav>   <h1 class="title">
+    <img src="../style/assests/fcritlogo.png" alt="Fr. Agnels Sports Complex" width="40" class="logo">
+    Fr. Agnels Sports Complex
+</h1>
+
+   <hr> <ul>
+      <li><a href="/book">home</a></li>
+      <li><a href="/admin/turfs">Manage Turfs</a></li>
+      <li><a href="/admin/bookings">View All Bookings</a></li>
+      <li><a href="/admin/data">Memberships</a></li>
+      <li><a href="/logout">Logout</a></li>
+      
+    </ul>
+  </nav>
+  <header>
+  
+    <h2>All Bookings</h2>
+  </header>
+  
+  <!-- Display Total Income -->
+  <div class="total-income">
+    Total Income: ₹<%= bookings.reduce((total, booking) => total + booking.price, 0) %>
+  </div>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>User</th>
+          <th>Turf</th>
+          <th>Date Slot</th>
+          <th>Time Slot</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Booking Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% bookings.forEach(booking => { %>
+          <tr>
+            <td><%= booking._id %></td> 
+            <td><%= booking.username %></td>
+            <td><%= booking.turfId ? booking.turfId.title : 'N/A' %></td>
+            <td><%= new Date(booking.dateSlot).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) %></td>
+            <td><%= booking.timeSlot %></td>
+            <td>₹<%= booking.price %></td>
+            <td><%= booking.status %></td>
+            <td><%= new Date(booking.bookingDate).toLocaleString() %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Turf - <%= turf.title %></title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body><nav class="navbar navbar-expand-md navbar-dark border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="../style/assests/fcritlogo.png" alt="" width="40" /> Fr.Agnels Sports Complex</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/book">AllListing</a>
+      </div>
+    </div>
+  </div>
+</nav>
+  <header>
+    <h1>Book Turf: <%= turf.title %></h1>
+  </header>
+  
+  <main>
+    <div class="turf-details">
+      <img src="<%= turf.imageUrl %>" alt="<%= turf.title %>" style="width:300px; height:auto;">
+      <p><%= turf.description %></p>
+      <p><strong>Price Per Hour:</strong> ₹<%= turf.pricePerHour %></p>
+      <!-- Removed location display -->
+    </div>
+
+    <!-- Booking Form -->
+    <form action="/booking/confirm" method="POST">
+      <!-- Hidden input for turf ID -->
+      <input type="hidden" name="turfId" value="<%= turf._id %>" />
+
+      <label for="date">Select Date:</label>
+      <input type="date" name="date" id="date" required />
+
+      <label for="timeSlot">Select Time Slot:</label>
+      <select name="timeSlot" id="timeSlot" required>
+        <!-- Dynamically populated with available slots for the selected date -->
+      </select>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </main>
+
+  <script>
+    // Dynamically fetch available slots when the user selects a date
+    const dateInput = document.getElementById('date');
+    const timeSlotSelect = document.getElementById('timeSlot');
+
+    dateInput.addEventListener('change', async () => {
+      const selectedDate = dateInput.value;
+      const turfId = "<%= turf._id %>"; // Injected from server-side data
+      
+      // Clear current options
+      timeSlotSelect.innerHTML = '';
+
+      // Fetch available slots for the selected date and turf
+      try {
+        const response = await fetch(`/api/turfs/${turfId}/slots?date=${selectedDate}`);
+        const availableSlots = await response.json();
+
+        // Populate the time slot dropdown
+        availableSlots.forEach(slot => {
+          const option = document.createElement('option');
+          option.value = slot.time;
+          option.textContent = `${slot.time} ${slot.isBooked ? '(Booked)' : ''}`;
+          if (!slot.isBooked) {
+            timeSlotSelect.appendChild(option);
+          }
+        });
+
+        // If no slots are available
+        if (timeSlotSelect.options.length === 0) {
+          const noSlotOption = document.createElement('option');
+          noSlotOption.value = '';
+          noSlotOption.textContent = 'No slots available for this date';
+          noSlotOption.disabled = true;
+          noSlotOption.selected = true;
+          timeSlotSelect.appendChild(noSlotOption);
+        }
+      } catch (err) {
+        console.error('Error fetching slots:', err);
+        alert('Failed to load available slots. Please try again later.');
+      }
+    });
+  </script>
+  
+</body>
+</html>

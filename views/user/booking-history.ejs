@@ -1,0 +1,112 @@
+<%- layout("/layouts/boilerplates") %>
+
+<body>
+
+    <h3 style="margin-left: 2rem; margin-top: 1rem; font-size: 2rem; color: #fff;">Your Turf Booking Slots</h3>
+
+    <div style="margin: 2rem;">
+        <% if (bookings.length === 0) { %>
+            <p style="color: #fff;">You have no bookings yet.</p>
+        <% } else { %>
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+                <% bookings.forEach(booking => { %>
+                    <div class="col">
+                        <div class="card shadow-sm card-listing border-light rounded">
+                            
+                            <img src="<%= booking.turfId.imageUrl %>" class="card-img-top"
+                                style="height: 16rem; object-fit: cover; border-radius: 10px 10px 0 0;" alt="Turf image">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b><%= booking.turfId.title %></b>
+                                </h5>
+                                <p class="card-text">
+                                    ⏳ Time Slot: <%= booking.timeSlot %> <br>
+                                    📅 Date: <%= new Date(booking.dateSlot).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) %> <br>
+                                    💰 Price: ₹<%= booking.price %> / hour <br>
+                                    🔹 Status: <%= booking.status %> <br>
+                                    📅 Booking Date: <%= new Date(booking.bookingDate).toLocaleDateString() %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+    <style>
+        /* Background */
+        body {
+            background-color: #121212 !important;
+            color: #fff !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffcc00 !important;
+            margin-left: 2rem;
+            margin-top: 1rem;
+            font-size: 2rem;
+        }
+
+        /* Card Styles */
+        .card-listing {
+            background: rgba(67, 66, 66, 0.4);
+            backdrop-filter: blur(40px);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10px;
+            border-color: #e9edea;
+            padding: 15px;
+            box-shadow: 0px 4px 15px rgba(186, 152, 14, 0.5);
+        
+        }
+
+        .card-listing:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            color: #ffcc00 !important;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+
+        .card-text {
+            color: #fff !important;
+            font-size: 1rem;
+        }
+
+        /* Status Badges */
+        .badge {
+            font-size: 14px !important;
+            padding: 6px 12px !important;
+            border-radius: 5px !important;
+            font-weight: bold !important;
+        }
+
+        .badge.bg-success {
+            background-color: #28a745 !important;
+            color: #fff !important;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545 !important;
+            color: #fff !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 1.5rem;
+            }
+            .card-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+</body>
