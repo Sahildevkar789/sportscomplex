@@ -6,10 +6,7 @@ const { isAuthenticated, isAdmin } = require('../middleware/auth.js'); // Middle
 const Booking = require('../models/Booking.js');  
 const Message = require('../models/mgs.js');  
 
-// Admin Dashboard
-// router.get('/dashboard', isAuthenticated, isAdmin, (req, res) => {
-//   res.render('admin/dashboard', { username: req.session.username });
-// });
+
 router.get("/dashboard", isAuthenticated, isAdmin, async (req, res) => {
   try {
     const messages = await Message.find().sort({ createdAt: -1 }); // Get latest messages
@@ -23,7 +20,7 @@ router.get("/dashboard", isAuthenticated, isAdmin, async (req, res) => {
 router.get('/turfs', async (req, res) => {
   try {
     const turfs = await Turf.find({});
-    res.render('admin/turfs', { turfs });
+    res.render('admin/turfs.ejs', { turfs });
   } catch (err) {
     console.error(err);
     req.flash('error', 'Failed to fetch turfs');
@@ -34,7 +31,7 @@ router.get('/turfs', async (req, res) => {
 
 // Create a new turf (GET: Render form)
 router.get('/turfs/new' ,(req, res) => {
-  res.render('admin/create-turf');
+  res.render('admin/create-turf.ejs');
 });
 
 // Create a new turf (POST: Handle form submission)
@@ -61,7 +58,7 @@ router.get('/turfs/:id/edit', async (req, res) => {
       req.flash('error', 'Turf not found');
       return res.redirect('/admin/turfs');
     }
-    res.render('admin/edit-turf', { turf });
+    res.render('admin/edit-turf.ejs', { turf });
   } catch (err) {
     console.error(err);
     req.flash('error', 'Failed to fetch turf');
@@ -115,7 +112,7 @@ router.get('/bookings', async (req, res) => {
       const allBookings = users.map(user => user.bookingHistory).flat();
   
       // Render the bookings page and pass the bookings data
-      res.render('admin/booking', { bookings: allBookings });
+      res.render('admin/booking.ejs', { bookings: allBookings });
     } catch (err) {
       console.error(err);
       req.flash('error', 'Error fetching bookings');
@@ -155,7 +152,7 @@ router.get('/bookings', async (req, res) => {
           remainingSlots: Math.max(100 - sport.slotsUsed, 0) // Ensure it doesn't go below 0
       }));
 
-      res.render('admin/memberdata', { sports, totalIncome });
+      res.render('admin/memberdata.ejs', { sports, totalIncome });
   } catch (error) {
       console.error("Error fetching membership data:", error);
       req.flash('error_msg', 'Error loading membership bookings.');

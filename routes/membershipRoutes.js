@@ -130,7 +130,7 @@ router.get('/history',  async (req, res) => {
             return res.redirect('/login');
         }
 
-        res.render('user/membership-history', { title: "Membership History", user });
+        res.render('user/membership-history.ejs', { title: "Membership History", user });
     } catch (error) {
         console.error(error);
         req.flash('error_msg', 'Error fetching membership history.');

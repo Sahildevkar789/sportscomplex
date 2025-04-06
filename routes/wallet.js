@@ -12,7 +12,7 @@ router.get('/:id/wallet', async (req, res) => {
       return res.status(404).send('User not found');
     }
 
-    res.render('wallet', { balance: user.walletBalance, username: user.username });
+    res.render('wallet.ejs', { balance: user.walletBalance, username: user.username });
   } catch (err) {
     console.error(err);
     res.status(500).send('Error fetching wallet balance.');

@@ -96,7 +96,7 @@ const walletRoutes = require('./routes/walletroutes.js');
 app.use('/wallet', walletRoutes);
 // Home Route
 app.get("/", (req, res) => {
-    res.render("listings/home");
+    res.render("listings/home.ejs");
 });
 
 app.use((req, res, next) => {
@@ -111,7 +111,7 @@ app.get('/book',isLoggedIn, async (req, res) => {
     try {
         const allTurf = await Turf.find({});
     
-        res.render("listings/index", { allTurf,username: req.session.username,admin:req.session.role });
+        res.render("listings/index.ejs", { allTurf,username: req.session.username,admin:req.session.role });
  
       } catch (err) {
         res.status(500).send('Error loading turfs.');
@@ -179,7 +179,7 @@ app.use((req, res, next) => {
             return res.redirect('/login');
         }
 
-        res.render('listings/membership', { title: "Membership Booking", user }); // ✅ Pass user to EJS
+        res.render('listings/membership.ejs', { title: "Membership Booking", user }); // ✅ Pass user to EJS
     } catch (error) {
         console.error(error);
         req.flash('error_msg', 'Error loading membership page.');
@@ -205,14 +205,14 @@ app.get('/listings/:turfId', isLoggedIn, async (req, res) => {
     // If availableSlots are empty, show a message or handle accordingly
     if (!turf.availableSlots || turf.availableSlots.length === 0) {
       console.log("No available slots for this turf.");
-      return res.render('user/booking', { turf, user, errorMessage: 'No available slots for this turf at the moment.' });
+      return res.render('user/booking.ejs', { turf, user, errorMessage: 'No available slots for this turf at the moment.' });
     }
 
     // Log the available slots for debugging
    
 
     // Render the booking page, passing the user and turf data
-    res.render('user/booking', { turf, user });
+    res.render('user/booking.ejs', { turf, user });
 
     // Log the username if the user is logged in
     if (user) {
@@ -329,7 +329,7 @@ const title = await Turf.findById(latestBooking.turfId); // Get the turf details
   
 
 // Render the 'done' view to show the receipt
-    res.render('user/done', { booking: latestBooking , title: title.title }); // Pass the booking and turf title to the view
+    res.render('user/done.ejs', { booking: latestBooking , title: title.title }); // Pass the booking and turf title to the view
   } catch (err) {
     console.error(err);
     res.status(500).send('Error fetching booking details');
@@ -346,7 +346,7 @@ app.get('/booking-history', isLoggedIn, async (req, res) => {
       }
   
       // Render the booking history page and pass the user's booking history
-      res.render('user/booking-history', { bookings: user.bookingHistory });
+      res.render('user/booking-history.ejs', { bookings: user.bookingHistory });
     } catch (err) {
       console.error(err);
       res.status(500).send('Error fetching booking history.');
@@ -368,7 +368,7 @@ app.get('/history', isLoggedIn, async (req, res) => {
             return res.redirect('/login');
         }
 
-        res.render('listings/membership-history', { title: "Membership History", user });
+        res.render('listings/membership-history.ejs', { title: "Membership History", user });
     } catch (error) {
         console.error(error);
         req.flash('error_msg', 'Error fetching membership history.');
@@ -376,7 +376,7 @@ app.get('/history', isLoggedIn, async (req, res) => {
     }
 });
 app.get("/360img",async(req,res) => {
-  res.render("listings/360", { title: "360 Degree View" });
+  res.render("listings/360.ejs", { title: "360 Degree View" });
 })
   
 app.use('/booking', bookingroutes); // Use bookingRoutes for all routes starting with /booking

@@ -10,7 +10,7 @@ router.get('/listings/:id', async (req, res) => {
     try {
         const turf = await Turf.findById(req.params.id);
         const user = await User.findById(req.session.userId);  // Assuming the user is logged in
-        res.render('user/booking', { turf, user });
+        res.render('user/booking.ejs', { turf, user });
     } catch (err) {
         res.status(500).send('Error loading booking page.');
     }

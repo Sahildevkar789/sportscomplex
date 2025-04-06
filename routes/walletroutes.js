@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
         const user = await User.findById(userId);
         if (!user) return res.status(404).send("User not found");
 
-        res.render("user/wallet", { userId: user._id, balance: user.walletBalance, transactions: user.transactionHistory });
+        res.render("user/wallet.ejs", { userId: user._id, balance: user.walletBalance, transactions: user.transactionHistory });
     } catch (error) {
         console.error("❌ Error fetching wallet:", error);
         res.status(500).send("Server error");

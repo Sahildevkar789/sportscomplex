@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const redirectIfAuthenticated = require('../middleware/redirectIfAuthenticated');
 router.get('/signup', redirectIfAuthenticated, (req, res) => {
-    res.render('users/signup'); // Render the signup page
+    res.render('users/signup.ejs'); // Render the signup page
   });
 // Signup Route (User & Admin)
 router.post('/signup', async (req, res) => {
