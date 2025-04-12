@@ -505,11 +505,7 @@ Shooting sports is a group of competitive and recreational sporting activities i
   
 
 </main>
-<div class="containerr">
-  <div class="headerr">
-    <h1>Fr. Agnel Sports Complex</h1>
-    <p>Your destination for sports, fitness, and recreation</p>
-  </div>
+<div class="containerr" id ="aboutus">
 
   <div class="contentt">
     <div class="sectionn about">
@@ -624,6 +620,12 @@ Shooting sports is a group of competitive and recreational sporting activities i
         const section = document.querySelector('.services');
         section.scrollIntoView({ behavior: 'smooth' });
       }
+      
+      function scrollToSection() {
+        const section = document.querySelector('.aboutus');
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+
 
     function toggleMenu() {
   document.querySelector('.navbar').classList.toggle('active');
