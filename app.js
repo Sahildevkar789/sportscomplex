@@ -208,9 +208,6 @@ app.get('/listings/:turfId', isLoggedIn, async (req, res) => {
       return res.render('user/booking.ejs', { turf, user, errorMessage: 'No available slots for this turf at the moment.' });
     }
 
-    // Log the available slots for debugging
-   
-
     // Render the booking page, passing the user and turf data
     res.render('user/booking.ejs', { turf, user });
 

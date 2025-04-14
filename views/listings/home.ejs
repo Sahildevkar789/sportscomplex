@@ -313,7 +313,7 @@
           <div class="hamburger" onclick="toggleMenu()">☰</div>
           <ul id="menu">
             <li><a href="#" class="active">HOME</a></li>
-            <li><a href="javascript:void(0);" onclick="scrollToSection()">SERVICES</a></li>
+            <li><a href="#services">SERVICES</a></li>
             <li><a href="#contactus">CONTACT US</a></li>
             <li><a href="#aboutus">ABOUT US</a></li>
           </ul>
@@ -505,6 +505,7 @@ Shooting sports is a group of competitive and recreational sporting activities i
   
 
 </main>
+
 <div class="containerr" id ="aboutus">
 
   <div class="contentt">
@@ -612,20 +613,7 @@ Shooting sports is a group of competitive and recreational sporting activities i
  
     </div> 
     <script >
-      function goToNextPage() {
-        window.location.href = '/html/services.html'; // Replace with your desired URL
-      }
     
-      function scrollToSection() {
-        const section = document.querySelector('.services');
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-      
-      function scrollToSection() {
-        const section = document.querySelector('.aboutus');
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-
 
     function toggleMenu() {
   document.querySelector('.navbar').classList.toggle('active');
