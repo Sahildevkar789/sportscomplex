@@ -62,7 +62,7 @@ TurfSchema.pre('save', function(next) {
     ];
 
     const today = new Date();
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 1000; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       date.setUTCHours(0, 0, 0, 0);  // Ensure dateSlot is always at midnight UTC

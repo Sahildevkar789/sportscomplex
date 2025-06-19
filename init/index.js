@@ -22,7 +22,7 @@ const generateAvailableSlots = () => {
   ];
 
   const today = new Date();
-  for (let i = 0; i < 90; i++) {
+  for (let i = 0; i < 1000; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);  // Increment date by i days
     date.setUTCHours(0, 0, 0, 0);  // Ensure dateSlot is always at midnight UTC
@@ -37,64 +37,6 @@ const generateAvailableSlots = () => {
   }
   return slots;
 };
-
-
-const turfs = [
-  {
-    title: "Football Turf A",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 500,
-    description: "High-quality football turf with artificial grass for professional matches."
-  },
-  {
-    title: "Football Turf B",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 550,
-    description: "Premium football turf suitable for tournaments."
-  },
-  {
-    title: "Badminton Court A",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 300,
-    description: "Indoor badminton court with proper lighting and ventilation."
-  },
-  {
-    title: "Badminton Court B",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 320,
-    description: "Spacious badminton court for practice and matches."
-  },
-  {
-    title: "Swimming Pool 1",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 400,
-    description: "Olympic-size swimming pool with well-maintained facilities."
-  },
-  {
-    title: "Basketball Court 1",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 350,
-    description: "Outdoor basketball court with high-quality flooring."
-  },
-  {
-    title: "Basketball Court 2",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 375,
-    description: "Spacious basketball court for friendly matches and tournaments."
-  },
-  {
-    title: "Table Tennis Room 1",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 250,
-    description: "Dedicated indoor space for table tennis with high-quality tables."
-  },
-  {
-    title: "Table Tennis Room 2",
-    imageUrl: "https://www.agnelhamara.net/uploads/images/articles/homepage/astroturf.jpg",
-    pricePerHour: 275,
-    description: "Indoor table tennis room with advanced equipment."
-  }
-];
 
 // Connect to MongoDB and insert turfs
 async function main() {
